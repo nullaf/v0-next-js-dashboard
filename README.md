@@ -1,81 +1,96 @@
 # World Bank Dashboard
 
-A modern, minimalistic dashboard web application for visualizing World Bank data.
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Features
+A modern, minimalistic dashboard web application for visualizing World Bank data. Built with Next.js 14, TypeScript, and ShadcnUI.
 
-- Built with Next.js 14 and TypeScript
-- App Router architecture
-- ShadcnUI components for a clean, modern UI
-- Interactive charts (Line, Bar, Donut, Area)
-- Data table with sortable columns and CSV export
-- Responsive design with collapsible sidebar
-- Dark mode support
-- Global state management with Zustand
-- API data management with React Query v5
-- Type-safe API client with Zod schemas
+## 📋 Table of Contents
 
-## Getting Started
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Development](#development)
+- [Project Structure](#project-structure)
+- [Technologies](#technologies)
+- [License](#license)
 
-### Prerequisites
+## ✨ Features
+
+- **Modern Stack**: Built with Next.js 14 and TypeScript
+- **Clean Architecture**: App Router for optimal routing and organization
+- **Beautiful UI**:
+  - ShadcnUI components for a clean, modern interface
+  - Dark mode support
+  - Responsive design with collapsible sidebar
+- **Data Visualization**:
+  - Interactive charts (Line, Bar, Donut, Area)
+  - Data tables with sortable columns
+  - CSV export functionality
+- **State Management**:
+  - Global state with Zustand
+  - API data management with React Query v5
+  - Type-safe API client with Zod schemas
+
+## 🚀 Prerequisites
+
+Before you begin, ensure you have the following installed:
 
 - Node.js 18.17 or later
-- pnpm (recommended)
+- pnpm (recommended package manager)
 
-### Installation
+## 💻 Installation
 
-1. Clone the repository:
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-\`\`\`bash
-git clone https://github.com/yourusername/world-bank-dashboard.git
-cd world-bank-dashboard
-\`\`\`
+## 🛠 Development
 
-2. Install dependencies:
+1. Start the development server:
 
-\`\`\`bash
-pnpm install
-\`\`\`
+   ```bash
+   pnpm dev
+   ```
 
-3. Start the development server:
+2. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-\`\`\`bash
-pnpm dev
-\`\`\`
+3. Make your changes and see them reflected in real-time.
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## 📁 Project Structure
 
-## Project Structure
-
-\`\`\`
+```
 world-bank-dashboard/
 ├── app/                  # Next.js App Router
-│   ├── api/              # API routes
-│   ├── layout.tsx        # Root layout
-│   └── page.tsx          # Home page
-├── components/           # React components
-│   ├── charts/           # Chart components
-│   ├── dashboard/        # Dashboard components
-│   └── ui/               # UI components (shadcn)
-├── lib/                  # Utility functions and hooks
-│   ├── hooks/            # Custom React hooks
-│   ├── stores/           # Zustand stores
-│   └── types.ts          # TypeScript types
-├── public/               # Static assets
-└── README.md             # Project documentation
-\`\`\`
+│   ├── api/             # API routes
+│   ├── layout.tsx       # Root layout
+│   └── page.tsx         # Home page
+├── components/          # React components
+│   ├── charts/         # Chart components
+│   ├── dashboard/      # Dashboard components
+│   └── ui/             # UI components (shadcn)
+├── lib/                 # Utility functions and hooks
+│   ├── hooks/          # Custom React hooks
+│   ├── stores/         # Zustand stores
+│   └── types.ts        # TypeScript types
+└── public/             # Static assets
+```
 
-## Technologies Used
+## 🔧 Technologies
 
-- [Next.js 14](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [ShadcnUI](https://ui.shadcn.com/)
-- [Zustand](https://github.com/pmndrs/zustand)
-- [React Query v5](https://tanstack.com/query/latest)
-- [Recharts](https://recharts.org/)
-- [Zod](https://zod.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
+| Category         | Technologies                                        |
+| ---------------- | --------------------------------------------------- |
+| Framework        | [Next.js 14](https://nextjs.org/)                   |
+| Language         | [TypeScript](https://www.typescriptlang.org/)       |
+| UI Components    | [ShadcnUI](https://ui.shadcn.com/)                  |
+| State Management | [Zustand](https://github.com/pmndrs/zustand)        |
+| Data Fetching    | [React Query v5](https://tanstack.com/query/latest) |
+| Charts           | [Recharts](https://recharts.org/)                   |
+| Validation       | [Zod](https://zod.dev/)                             |
+| Styling          | [Tailwind CSS](https://tailwindcss.com/)            |
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
