@@ -1,13 +1,17 @@
-"use client"
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Cell, Pie, PieChart } from "recharts"
-import type { WorldBankIndicator, ChartConfig } from "@/lib/types"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from '@/components/ui/chart';
+import { Cell, Pie, PieChart } from 'recharts';
+import type { WorldBankIndicator, ChartConfig } from '@/lib/types';
 
 interface DonutChartCardProps {
-  chart: ChartConfig
-  data: WorldBankIndicator[]
+  chart: ChartConfig;
+  data: WorldBankIndicator[];
 }
 
 export function DonutChartCard({ chart, data }: DonutChartCardProps) {
@@ -17,16 +21,19 @@ export function DonutChartCard({ chart, data }: DonutChartCardProps) {
     .slice(0, 5)
     .map((item) => ({
       name: item.country.value,
-      value: typeof item.value === "number" ? item.value : Number.parseFloat(item.value || "0"),
-    }))
+      value:
+        typeof item.value === 'number'
+          ? item.value
+          : Number.parseFloat(item.value || '0'),
+    }));
 
   const COLORS = [
-    "hsl(var(--chart-1))",
-    "hsl(var(--chart-2))",
-    "hsl(var(--chart-3))",
-    "hsl(var(--chart-4))",
-    "hsl(var(--chart-5))",
-  ]
+    'hsl(var(--chart-1))',
+    'hsl(var(--chart-2))',
+    'hsl(var(--chart-3))',
+    'hsl(var(--chart-4))',
+    'hsl(var(--chart-5))',
+  ];
 
   return (
     <Card>
@@ -34,15 +41,27 @@ export function DonutChartCard({ chart, data }: DonutChartCardProps) {
         <CardTitle>{chart.title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer className="aspect-[4/3]">
+        <ChartContainer
+          config={chartData.reduce(
+            (acc, _, index) => ({
+              ...acc,
+              [`slice${index + 1}`]: {
+                label: `Slice ${index + 1}`,
+                color: COLORS[index % COLORS.length],
+              },
+            }),
+            {}
+          )}
+          className="aspect-[4/3] w-full"
+        >
           <PieChart>
             <ChartTooltip content={<ChartTooltipContent />} />
             <Pie
               data={chartData}
               cx="50%"
               cy="50%"
-              innerRadius={60}
-              outerRadius={80}
+              innerRadius={35}
+              outerRadius={45}
               fill="#8884d8"
               paddingAngle={5}
               dataKey="value"
@@ -50,12 +69,15 @@ export function DonutChartCard({ chart, data }: DonutChartCardProps) {
               label={({ name }) => name.substring(0, 3)}
             >
               {chartData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
               ))}
             </Pie>
           </PieChart>
         </ChartContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
