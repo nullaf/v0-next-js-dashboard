@@ -37,7 +37,10 @@ export function ChartGrid() {
     if (!ChartComponent) return null;
 
     return (
-      <div key={chart.id} className="relative group">
+      <div
+        key={chart.id}
+        className="relative group min-w-[15rem] min-h-[15rem]"
+      >
         <Button
           variant="destructive"
           size="icon"
@@ -54,7 +57,7 @@ export function ChartGrid() {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[80vw]">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 max-w-[80vw]">
         {charts.map(renderChart)}
       </div>
     </div>
